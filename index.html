@@ -48,29 +48,6 @@
 
     <br />
 
-    <table>
-      <caption>
-        Employee Database
-      </caption>
-      <thead>
-        <tr>
-          <th>No</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Occupation</th>
-          <th>Age</th>
-          <th colspan="2">Action</th>
-        </tr>
-      </thead>
-
-      <tbody id="employeeDatabase">
-        
-      </tbody>
-    </table>
-
-    <br />
-    <br />
-
     <fieldset>
       <legend>Search Employee</legend>
       <label for="searchName">Employee Name:</label>
@@ -90,13 +67,47 @@
       <button onclick="searchEmployees()">Search Employee</button>
     </fieldset>
 
+    <br />
+
+    <fieldset>
+      <legend>Sort Employee</legend>
+      <label for="searchOccupation">Order</label>
+      <select id="searchOccupation">
+        <option value="">Ascending</option>
+        <option value="">Descending</option>
+      </select>
+      <br />
+      <br />
+      <button>Sort Employee By Name</button>
+      <button>Sort Employee By Age</button>
+      <button>Reset Sort</button>
+    </fieldset>
+
+    <table>
+      <caption>
+        Employee Database
+      </caption>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Occupation</th>
+          <th>Age</th>
+          <th colspan="2">Action</th>
+        </tr>
+      </thead>
+
+      <tbody id="employeeDatabase"></tbody>
+    </table>
+
     <script>
       class Employee {
         constructor(fullName, occupation, email, age) {
-          this.fullName = fullName
-          this.email = email
-          this.age = age
-          this.occupation = occupation
+          this.fullName = fullName;
+          this.email = email;
+          this.age = age;
+          this.occupation = occupation;
         }
       }
 
@@ -105,10 +116,10 @@
         new Employee("Steve", "Digital Marketer", "steve@mail.com", 21),
         new Employee("Bill", "UI/UX", "bill@mail.com", 13),
         new Employee("Seto", "Data Scientist", "seto@mail.com", 30),
-      ]
+      ];
 
       const renderData = (dataToRender = []) => {
-        let htmlResult = ""
+        let htmlResult = "";
 
         dataToRender.forEach((val, idx) => {
           htmlResult += `
@@ -119,11 +130,11 @@
               <td>${val.occupation}</td>
               <td>${val.age}</td>
             </tr>
-          `
-        })
+          `;
+        });
 
-        document.getElementById("employeeDatabase").innerHTML = htmlResult
-      }
+        document.getElementById("employeeDatabase").innerHTML = htmlResult;
+      };
 
       const addData = () => {
         const firstName = document.getElementById("firstName").value;
@@ -132,31 +143,39 @@
         const age = document.getElementById("age").value;
         const occupation = document.getElementById("occupation").value;
 
-        const newEmployee = new Employee (
+        const newEmployee = new Employee(
           `${firstName} ${lastName}`,
           occupation,
           email,
           age
-        )
+        );
 
         employeeDatabase.push(newEmployee);
 
-        renderData(employeeDatabase)
-      }
+        renderData(employeeDatabase);
+      };
 
-      renderData(employeeDatabase)
+      renderData(employeeDatabase);
 
       const searchEmployees = () => {
-        let searchEmployeeNameValue = document.getElementById("searchName").value
-        let searchEmployeeOccupationValue = document.getElementById("searchOccupation").value
+        let searchEmployeeNameValue =
+          document.getElementById("searchName").value;
+        let searchEmployeeOccupationValue =
+          document.getElementById("searchOccupation").value;
 
         let filteredData = employeeDatabase.filter((val) => {
-          return val.fullName.toLowerCase().includes(searchEmployeeNameValue.toLowerCase()) && 
-            val.occupation.toLowerCase().includes(searchEmployeeOccupationValue.toLowerCase())
-        })
+          return (
+            val.fullName
+              .toLowerCase()
+              .includes(searchEmployeeNameValue.toLowerCase()) &&
+            val.occupation
+              .toLowerCase()
+              .includes(searchEmployeeOccupationValue.toLowerCase())
+          );
+        });
 
-        renderData(filteredData)
-      }
+        renderData(filteredData);
+      };
     </script>
   </body>
 </html>
@@ -175,7 +194,7 @@
     b. git branch -m main
  -->
 
- <!-- 
+<!-- 
    feat -> feature. Digunakan ketika ada perubahan di fitur.
    fix -> digunakan ketika melakukan bugfix
    ui -> digunakan ketika ada perubahan tampilan
