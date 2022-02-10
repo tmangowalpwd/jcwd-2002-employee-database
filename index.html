@@ -43,7 +43,7 @@
       </select>
       <br />
       <br />
-      <button>Create Data</button>
+      <button onclick="addData()">Create Data</button>
     </fieldset>
 
     <br />
@@ -73,12 +73,12 @@
 
     <fieldset>
       <legend>Search Employee</legend>
-      <label for="fname">Employee Name:</label>
-      <input type="text" id="fname" name="fname" />
+      <label for="searchName">Employee Name:</label>
+      <input type="text" id="searchName" name="searchName" />
       <br />
       <br />
-      <label for="occupation">Occupation</label>
-      <select id="occupation">
+      <label for="searchOccupation">Occupation</label>
+      <select id="searchOccupation">
         <option>All Occupations</option>
         <option>Software Developer</option>
         <option>UI/UX</option>
@@ -148,6 +148,25 @@
         })
 
         document.getElementById("employeeDatabase").innerHTML = htmlResult
+      }
+
+      const addData = () => {
+        const firstName = document.getElementById("fname").value;
+        const lastName = document.getElementById("lname").value;
+        const email = document.getElementById("email").value;
+        const age = document.getElementById("age").value;
+        const occupation = document.getElementById("occupation").value;
+
+        const newEmployee = new Employee (
+          firstName + lastName,
+          occupation,
+          email,
+          age
+        )
+
+        data.push(newEmployee);
+
+        renderData()
       }
 
       renderData()
