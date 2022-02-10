@@ -57,22 +57,14 @@
           <th>No</th>
           <th>Name</th>
           <th>Email</th>
-          <th>Age</th>
           <th>Occupation</th>
+          <th>Age</th>
           <th colspan="2">Action</th>
         </tr>
       </thead>
 
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>John Doe</td>
-          <td>John@mail.com</td>
-          <td>29</td>
-          <td>Software Developer</td>
-          <td><button>Edit</button></td>
-          <td><button>Delete</button></td>
-        </tr>
+      <tbody id="employeeDatabase">
+        
       </tbody>
     </table>
 
@@ -139,6 +131,26 @@
         new Employee("Bill", "UI/UX", "bill@mail.com", 13),
         new Employee("Seto", "Data Scientist", "seto@mail.com", 30),
       ]
+
+      const renderData = () => {
+        let htmlResult = ""
+
+        data.forEach((val, idx) => {
+          htmlResult += `
+            <tr>
+              <td>${idx + 1}</td>
+              <td>${val.fullName}</td>
+              <td>${val.email}</td>
+              <td>${val.occupation}</td>
+              <td>${val.age}</td>
+            </tr>
+          `
+        })
+
+        document.getElementById("employeeDatabase").innerHTML = htmlResult
+      }
+
+      renderData()
     </script>
   </body>
 </html>
