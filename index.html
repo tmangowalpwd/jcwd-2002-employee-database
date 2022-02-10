@@ -90,25 +90,6 @@
       <button onclick="searchEmployees()">Search Employee</button>
     </fieldset>
 
-    <table>
-      <caption>
-        Search Results
-      </caption>
-      <thead>
-        <tr>
-          <th>No</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Age</th>
-          <th>Occupation</th>
-        </tr>
-      </thead>
-
-      <tbody id="searchResults">
-
-      </tbody>
-    </table>
-
     <script>
       class Employee {
         constructor(fullName, occupation, email, age) {
@@ -126,10 +107,10 @@
         new Employee("Seto", "Data Scientist", "seto@mail.com", 30),
       ]
 
-      const renderData = () => {
+      const renderData = (dataToRender = []) => {
         let htmlResult = ""
 
-        employeeDatabase.forEach((val, idx) => {
+        dataToRender.forEach((val, idx) => {
           htmlResult += `
             <tr>
               <td>${idx + 1}</td>
@@ -160,35 +141,21 @@
 
         employeeDatabase.push(newEmployee);
 
-        renderData()
+        renderData(employeeDatabase)
       }
 
-      renderData()
+      renderData(employeeDatabase)
 
       const searchEmployees = () => {
         let searchEmployeeNameValue = document.getElementById("searchName").value
         let searchEmployeeOccupationValue = document.getElementById("searchOccupation").value
 
-        let htmlResult = ""
-        employeeDatabase.forEach((val, idx) => {
-          if (
-            val.fullName.toLowerCase().includes(searchEmployeeNameValue.toLowerCase()) 
-            && 
+        let filteredData = employeeDatabase.filter((val) => {
+          return val.fullName.toLowerCase().includes(searchEmployeeNameValue.toLowerCase()) && 
             val.occupation.toLowerCase().includes(searchEmployeeOccupationValue.toLowerCase())
-          ) {
-            htmlResult += `
-              <tr>
-                <td>${idx + 1}</td>
-                <td>${val.fullName}</td>
-                <td>${val.email}</td>
-                <td>${val.occupation}</td>
-                <td>${val.age}</td>
-              </tr>
-            `
-          }
         })
 
-        document.getElementById("employeeDatabase").innerHTML = htmlResult
+        renderData(filteredData)
       }
     </script>
   </body>
