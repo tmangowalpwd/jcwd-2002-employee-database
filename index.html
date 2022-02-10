@@ -122,5 +122,30 @@
         </tr>
       </tbody>
     </table>
+
+    <script>
+      class Employee {
+        constructor(fullName, email, age, occupation) {
+          this.fullName = fullName
+          this.email = email
+          this.age = age
+          this.occupation = occupation
+        }
+      }
+    </script>
   </body>
 </html>
+
+<!-- 
+  1. Inisialisasi Repository (Sekali saja)
+    a. git init
+    b. git remote add origin <URL_GITHUB_REPO>
+  2. Setiap ada perubahan file
+    a. git add .
+    b. git commit -m "<MESSAGE>"
+    c. git push origin main
+
+  3. Mac users (sekali seumur hidup)
+    a. git config --global init.defaultBranch main
+    b. git branch -m main
+ -->
