@@ -119,7 +119,7 @@
         }
       }
 
-      let data = [
+      let employeeDatabase = [
         new Employee("Mark", "Software Developer", "mark@mail.com", 17),
         new Employee("Steve", "Digital Marketer", "steve@mail.com", 21),
         new Employee("Bill", "UI/UX", "bill@mail.com", 13),
@@ -129,7 +129,7 @@
       const renderData = () => {
         let htmlResult = ""
 
-        data.forEach((val, idx) => {
+        employeeDatabase.forEach((val, idx) => {
           htmlResult += `
             <tr>
               <td>${idx + 1}</td>
@@ -158,7 +158,7 @@
           age
         )
 
-        data.push(newEmployee);
+        employeeDatabase.push(newEmployee);
 
         renderData()
       }
@@ -170,7 +170,7 @@
         let searchEmployeeOccupationValue = document.getElementById("searchOccupation").value
 
         let htmlResult = ""
-        data.forEach((val, idx) => {
+        employeeDatabase.forEach((val, idx) => {
           if (
             val.fullName.toLowerCase().includes(searchEmployeeNameValue.toLowerCase()) 
             && 
@@ -188,7 +188,7 @@
           }
         })
 
-        document.getElementById("searchResults").innerHTML = htmlResult
+        document.getElementById("employeeDatabase").innerHTML = htmlResult
       }
     </script>
   </body>
