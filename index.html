@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      table,
+      td,
+      th {
+        border-collapse: collapse;
+        border: 1px solid black;
+      }
+    </style>
+    <fieldset>
+      <legend>Employee Information</legend>
+      <label for="fname">First name:</label>
+      <input type="text" id="fname" name="fname" />
+      <br />
+      <br />
+      <label for="lname">Last name:</label>
+      <input type="text" id="lname" name="lname" />
+      <br />
+      <br />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" />
+      <br />
+      <br />
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" />
+      <br />
+      <br />
+      <label for="occupation">Occupation</label>
+      <select id="occupation">
+        <option>Software Developer</option>
+        <option>UI/UX</option>
+        <option>Digital Marketer</option>
+        <option>Data Scientist</option>
+      </select>
+      <br />
+      <br />
+      <button>Create Data</button>
+    </fieldset>
+
+    <br />
+
+    <table>
+      <caption>
+        Employee Database
+      </caption>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>Occupation</th>
+          <th colspan="2">Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>John Doe</td>
+          <td>John@mail.com</td>
+          <td>29</td>
+          <td>Software Developer</td>
+          <td><button>Edit</button></td>
+          <td><button>Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br />
+    <br />
+
+    <fieldset>
+      <legend>Search Employee</legend>
+      <label for="fname">Employee Name:</label>
+      <input type="text" id="fname" name="fname" />
+      <br />
+      <br />
+      <label for="occupation">Occupation</label>
+      <select id="occupation">
+        <option>All Occupations</option>
+        <option>Software Developer</option>
+        <option>UI/UX</option>
+        <option>Digital Marketer</option>
+        <option>Data Scientist</option>
+      </select>
+      <br />
+      <br />
+      <button>Search Employee</button>
+    </fieldset>
+
+    <table>
+      <caption>
+        Search Results
+      </caption>
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>Occupation</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>John Doe</td>
+          <td>John@mail.com</td>
+          <td>29</td>
+          <td>Software Developer</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
