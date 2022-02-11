@@ -1,7 +1,7 @@
 // Duplikasi method .find
 // Duplikasi method .indexOf
 
-const fruits = ["Apel", "Jeruk", "Leci", "Mangga"]
+const fruits = ["Jeruk", "Apel", "Mangga", "Leci"]
 
 // Conditions (indexOf)
 // 1. Mencari index dari sebuah item dalam array
@@ -38,6 +38,53 @@ const duplikatFind = (arr, callback) => {
   }
 }
 
-console.log(duplikatFind(fruits, (val) => {
-  return val.length > 4
-}))
+// console.log(duplikatFind(fruits, (val) => {
+//   return val.length > 4
+// }))
+
+const ages = [13, 7, 1, 3, 2, 8, 3, 26]
+
+// const copyFruits = [ ...fruits ]
+// copyFruits.sort()
+
+// console.log(fruits)
+// console.log(copyFruits)
+
+ages.sort((a, b) => {
+  return a - b
+})
+
+// console.log(ages)
+
+const people = [
+  {
+    fullName: "seto",
+    age : 17
+  },
+  {
+    fullName: "sasuke",
+    age : 29
+  },
+  {
+    fullName: "doraemon",
+    age : 13
+  },
+  {
+    fullName: "bill",
+    age : 40
+  },
+]
+
+people.sort((a, b) => {
+  if (a.fullName > b.fullName) {
+    return -1
+  }
+
+  if (b.fullName > a.fullName) {
+    return 1
+  }
+
+  return 0
+})
+
+console.log(people)
