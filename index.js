@@ -76,15 +76,22 @@ const people = [
 ]
 
 people.sort((a, b) => {
-  if (a.fullName > b.fullName) {
-    return -1
+  if (a.age > b.age) {
+    return 1
   }
 
-  if (b.fullName > a.fullName) {
-    return 1
+  if (b.age > a.age) {
+    return -1
   }
 
   return 0
 })
 
-console.log(people)
+const seto = {
+  fullName: "seto",
+  age : 17
+}
+
+const key = "fullName"
+
+console.log(seto[key])
